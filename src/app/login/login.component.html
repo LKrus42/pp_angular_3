@@ -1,0 +1,18 @@
+<div class="box">
+  <div class="top">
+    <div class="form">
+      <input id="inp_login" [(ngModel)]="loginVal" placeholder="Login" />
+      <input
+        id="inp_password"
+        [(ngModel)]="passwordVal"
+        type="password"
+        placeholder="Password"
+      />
+      <button class="button button-primary" (click)="login()">Login me!</button>
+    </div>
+  </div>
+  <div class="footer">
+    <label for="inp_token">Auth token:</label>
+    <input id="inp_token" [value]="token" placeholder="¯\_(ツ)_/¯" readonly />
+  </div>
+</div>

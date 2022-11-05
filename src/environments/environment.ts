@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  authApiUrl:
+    'http://kong.fte3.10.97.145.65.nip.io/sso/auth/realms/mts/protocol/openid-connect/token',
 };
 
 /*
