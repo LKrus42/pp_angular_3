@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { EnrichApiRequestInterceptor } from './interceptors/enrich-api-request.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,14 @@ import { EnrichApiRequestInterceptor } from './interceptors/enrich-api-request.i
     LoginComponent,
     InventoryComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

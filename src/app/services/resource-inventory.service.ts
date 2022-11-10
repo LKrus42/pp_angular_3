@@ -10,10 +10,23 @@ export class ResourceInventoryService {
 
   constructor(private http: HttpClient) {}
 
-  check() {
-    const res = this.http.get(this.url);
-    res.forEach((i) => {
-      let a = i;
+  async getIt(params: Map<string, any>): Promise<string> {
+    const urlWithParams = new URL(this.url);
+    Array.from(params.keys()).forEach((key) => {
+      const val = params.get(key);
+
+      if (Array.isArray(val)) {
+        val.forEach((i) => {
+          urlWithParams.searchParams.append(key, i.toString());
+        });
+      } else {
+        urlWithParams.searchParams.append(key, val.toString());
+      }
     });
+
+    const sturi = urlWithParams.toString();
+
+    const res = await this.http.get(sturi).toPromise();
+    return JSON.stringify(res) || 'never be displayed';
   }
 }
