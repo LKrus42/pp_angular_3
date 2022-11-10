@@ -13,9 +13,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  loginVal: string | undefined;
+  // loginVal: string | undefined;
+  // passwordVal: string | undefined;
 
-  passwordVal: string | undefined;
+  loginVal: string | undefined = 'kong-auth-dev';
+  passwordVal: string | undefined = 'd678d93c-658b-4929-b09f-e8caa88c31ab';
 
   get token() {
     return this.authService.user?.access_token || null;

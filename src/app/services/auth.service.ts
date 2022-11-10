@@ -34,6 +34,7 @@ export class AuthService {
 
     const fetchResponse = await fetch(this.url, settings);
     const data = await fetchResponse.json();
+
     if (fetchResponse.ok) {
       this.user = data as User;
       console.info('login complete');

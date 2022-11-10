@@ -6,6 +6,8 @@ export const environment = {
   production: false,
   authApiUrl:
     'http://kong.fte3.10.97.145.65.nip.io/sso/auth/realms/mts/protocol/openid-connect/token',
+  resourceInventoryApiUrl:
+    'http://kong.fte3.10.97.145.65.nip.io/auth/resource/inventory/item',
 };
 
 /*
