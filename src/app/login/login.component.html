@@ -8,7 +8,27 @@
         type="password"
         placeholder="Password"
       />
-      <button class="button button-primary" (click)="login()">Login me!</button>
+      <button
+        class="button button-primary"
+        (click)="login()"
+        [disabled]="isLoggedIn"
+      >
+        Login me!
+      </button>
+      <button
+        class="button button-primary"
+        (click)="logout()"
+        [disabled]="!isLoggedIn"
+      >
+        Logout
+      </button>
+      <button
+        class="button button-primary"
+        (click)="go()"
+        [disabled]="!isLoggedIn"
+      >
+        Go Home
+      </button>
     </div>
   </div>
   <div class="footer">
