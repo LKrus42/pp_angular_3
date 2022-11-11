@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { delay } from 'rxjs';
 import { ResourceInventoryService } from '../services/resource-inventory.service';
 
 @Component({
@@ -7,6 +8,8 @@ import { ResourceInventoryService } from '../services/resource-inventory.service
   styleUrls: ['./inventory.component.scss'],
 })
 export class InventoryComponent implements OnInit {
+  private inProgressFlag = false;
+
   constructor(private riService: ResourceInventoryService) {}
   ngOnInit(): void {}
 
@@ -34,6 +37,8 @@ export class InventoryComponent implements OnInit {
   response: any = { status: 'No data' };
 
   getIt() {
+    this.inProgressFlag = true;
+
     this.riService
       .getIt(this.selectedVals)
       .then((val) => {
@@ -41,6 +46,11 @@ export class InventoryComponent implements OnInit {
       })
       .catch((err) => {
         alert(err.message);
-      });
+      })
+      .finally(() => (this.inProgressFlag = false));
+  }
+
+  get inProgress() {
+    return this.inProgressFlag;
   }
 }

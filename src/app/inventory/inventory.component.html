@@ -92,7 +92,7 @@
         <mat-option value="service">service</mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-button (click)="getIt()">Get it</button>
+    <button mat-button (click)="getIt()" [disabled]="inProgress">Get it</button>
   </div>
   <div class="right">
     <ngx-json-viewer [json]="response"></ngx-json-viewer>

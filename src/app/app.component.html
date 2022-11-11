@@ -1,6 +1,6 @@
-<a mat-button href="login" target="_blank" *ngIf="!isLogin"
-  >Go Login / Logout</a
+<a mat-button href="login" target="_self" *ngIf="!isLogin">Go Login / Logout</a>
+<a mat-button href="inventory" target="_self" *ngIf="isLogin && isLogged"
+  >Go Inventory</a
 >
-<a mat-button href="inventory" target="_blank" *ngIf="isLogin">Go Inventory</a>
 
 <router-outlet></router-outlet>

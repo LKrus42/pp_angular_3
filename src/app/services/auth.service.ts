@@ -7,20 +7,24 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
-  user: User | undefined | null;
-  readonly url = environment.authApiUrl;
-  readonly key = 'userkey';
+  private usr: User | undefined | null;
+  private readonly url = environment.authApiUrl;
+  private readonly key = 'userkey';
+
+  get user(): User | undefined | null {
+    return this.usr;
+  }
 
   constructor(private http: HttpClient) {
     let st = localStorage.getItem(this.key);
     if (!!st) {
       let u = JSON.parse(st);
-      this.user = u;
+      this.usr = u;
     }
   }
 
   async login(login: string, password: string): Promise<User> {
-    if (!!this.user) throw new Error('Already logged in');
+    if (!!this.usr) throw new Error('Already logged in');
 
     const settings = {
       method: 'POST',
@@ -36,17 +40,17 @@ export class AuthService {
     const data = await fetchResponse.json();
 
     if (fetchResponse.ok) {
-      this.user = data as User;
+      this.usr = data as User;
       console.info('login complete');
-      localStorage.setItem(this.key, JSON.stringify(this.user));
-      return this.user;
+      localStorage.setItem(this.key, JSON.stringify(this.usr));
+      return this.usr;
     } else {
       throw new Error(data.error_description);
     }
   }
 
   logout() {
-    this.user = null;
+    this.usr = null;
     localStorage.removeItem(this.key);
   }
 }
