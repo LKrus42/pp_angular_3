@@ -1,95 +1,100 @@
-<mat-form-field appearance="fill">
-  <mat-label>Region</mat-label>
-  <mat-select
-    (selectionChange)="updateVal($event)"
-    id="location"
-    [value]="selectedVals.get('location')"
-  >
-    <mat-option value="MR_CENTER">MR_CENTER</mat-option>
-    <mat-option value="MR_SOUTH">MR_SOUTH</mat-option>
-  </mat-select>
-</mat-form-field>
+<div class="wrapper">
+  <div class="left">
+    <mat-form-field appearance="fill">
+      <mat-label>Region</mat-label>
+      <mat-select
+        (selectionChange)="updateVal($event)"
+        id="location"
+        [value]="selectedVals.get('location')"
+      >
+        <mat-option value="MR_CENTER">MR_CENTER</mat-option>
+        <mat-option value="MR_SOUTH">MR_SOUTH</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Type</mat-label>
-  <input
-    matInput
-    type="number"
-    class="form-control"
-    (change)="updateVal($event)"
-    name="type"
-    [value]="selectedVals.get('type')"
-  />
-</mat-form-field>
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        (change)="updateVal($event)"
+        name="type"
+        [value]="selectedVals.get('type')"
+      />
+    </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Page num</mat-label>
-  <input
-    matInput
-    type="number"
-    class="form-control"
-    (change)="updateVal($event)"
-    name="pagenum"
-    [value]="selectedVals.get('pagenum')"
-  />
-</mat-form-field>
+    <mat-form-field>
+      <mat-label>Page num</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        (change)="updateVal($event)"
+        name="pagenum"
+        [value]="selectedVals.get('pagenum')"
+      />
+    </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Page size</mat-label>
-  <input
-    matInput
-    type="number"
-    class="form-control"
-    (change)="updateVal($event)"
-    name="pagesize"
-    [value]="selectedVals.get('pagesize')"
-  />
-</mat-form-field>
+    <mat-form-field>
+      <mat-label>Page size</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        (change)="updateVal($event)"
+        name="pagesize"
+        [value]="selectedVals.get('pagesize')"
+      />
+    </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Stock</mat-label>
-  <input
-    matInput
-    type="number"
-    class="form-control"
-    (change)="updateVal($event)"
-    name="stock"
-    [value]="selectedVals.get('stock')"
-  />
-</mat-form-field>
+    <mat-form-field>
+      <mat-label>Stock</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        (change)="updateVal($event)"
+        name="stock"
+        [value]="selectedVals.get('stock')"
+      />
+    </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Cose</mat-label>
-  <input
-    matInput
-    type="number"
-    class="form-control"
-    (change)="updateVal($event)"
-    name="code"
-    [value]="selectedVals.get('code')"
-  />
-</mat-form-field>
+    <mat-form-field>
+      <mat-label>Code</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        (change)="updateVal($event)"
+        name="code"
+        [value]="selectedVals.get('code')"
+      />
+    </mat-form-field>
 
-<mat-form-field appearance="fill">
-  <mat-label>Status</mat-label>
-  <mat-select
-    (selectionChange)="updateVal($event)"
-    id="status"
-    [value]="selectedVals.get('status')"
-  >
-    <mat-option value="available">Available</mat-option>
-    <mat-option value="unavailable">Unavailable</mat-option>
-  </mat-select>
-</mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Status</mat-label>
+      <mat-select
+        (selectionChange)="updateVal($event)"
+        id="status"
+        [value]="selectedVals.get('status')"
+      >
+        <mat-option value="available">Available</mat-option>
+        <mat-option value="unavailable">Unavailable</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-<mat-form-field appearance="fill">
-  <mat-label>Includes</mat-label>
-  <mat-select (selectionChange)="updateVal($event)" id="include" multiple>
-    <mat-option value="account">account</mat-option>
-    <mat-option value="model">model</mat-option>
-    <mat-option value="service">service</mat-option>
-  </mat-select>
-</mat-form-field>
-
-<button class="button button-primary" (click)="getIt()">Get it</button>
-<input id="inp_token" [value]="response" placeholder="¯\_(ツ)_/¯" readonly />
+    <mat-form-field appearance="fill">
+      <mat-label>Includes</mat-label>
+      <mat-select (selectionChange)="updateVal($event)" id="include" multiple>
+        <mat-option value="account">account</mat-option>
+        <mat-option value="model">model</mat-option>
+        <mat-option value="service">service</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button (click)="getIt()">Get it</button>
+  </div>
+  <div class="right">
+    <ngx-json-viewer [json]="response"></ngx-json-viewer>
+  </div>
+</div>

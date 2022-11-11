@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: rgb(65, 60, 60);
-    color: white;
-  }
-}
+
+// @media (prefers-color-scheme: dark) {
+//   body {
+//     background-color: rgb(65, 60, 60);
+//     color: white;
+//   }
+// }
 
 html,
 body {
@@ -13,4 +14,25 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-form-field-wrapper {
+  margin: 10px;
+}
+
+button.mat-button {
+  border: 1px solid black;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+a.mat-button {
+  border: 1px solid #3f51b5;
+  color: #3f51b5;
+  margin: 10px;
+}
+
+.ngx-json-viewer {
+  border: 1px solid #222;
 }

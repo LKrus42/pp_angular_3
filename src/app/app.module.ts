@@ -12,6 +12,8 @@ import { EnrichApiRequestInterceptor } from './interceptors/enrich-api-request.i
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,7 @@ import { MaterialModule } from './material/material.module';
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+    NgxJsonViewerModule,
   ],
   providers: [
     {

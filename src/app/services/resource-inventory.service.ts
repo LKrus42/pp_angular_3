@@ -10,7 +10,7 @@ export class ResourceInventoryService {
 
   constructor(private http: HttpClient) {}
 
-  async getIt(params: Map<string, any>): Promise<string> {
+  async getIt(params: Map<string, any>): Promise<any> {
     const urlWithParams = new URL(this.url);
     Array.from(params.keys()).forEach((key) => {
       const val = params.get(key);
@@ -27,6 +27,6 @@ export class ResourceInventoryService {
     const sturi = urlWithParams.toString();
 
     const res = await this.http.get(sturi).toPromise();
-    return JSON.stringify(res) || 'never be displayed';
+    return res;
   }
 }

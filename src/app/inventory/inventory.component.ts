@@ -14,7 +14,7 @@ export class InventoryComponent implements OnInit {
     ['location', 'MR_CENTER'],
     ['type', 2],
     ['pagenum', 1],
-    ['pagesize', 100],
+    ['pagesize', 10],
     ['stock', 8],
     ['code', 2],
     ['status', 'available'],
@@ -31,7 +31,7 @@ export class InventoryComponent implements OnInit {
     this.selectedVals.set(paramType, val);
   }
 
-  response = '';
+  response: any = { status: 'No data' };
 
   getIt() {
     this.riService

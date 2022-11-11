@@ -8,16 +8,15 @@ import { InventoryComponent } from './inventory/inventory.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
 
-  // home route protected by auth guard
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   {
     path: 'inventory',
     component: InventoryComponent,
     canActivate: [AuthGuard],
   },
 
-  // otherwise redirect to home
-  { path: '**', redirectTo: 'home' },
+  // otherwise redirect to inventory
+  { path: '**', redirectTo: 'inventory' },
 ];
 
 @NgModule({
